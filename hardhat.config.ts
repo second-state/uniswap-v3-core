@@ -30,11 +30,26 @@ export default {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
   solidity: {
-    version: '0.7.6',
+    version: '0.8.6',
     settings: {
       optimizer: {
         enabled: true,
         runs: 800,
+      },
+      "outputSelection": {
+          "*": {
+              "*": [
+                  "metadata", "evm.bytecode", // Enable the metadata and bytecode outputs of every single contract.
+                  "evm.bytecode.sourceMap" // Enable the source map output of every single contract.
+              ],
+              "": [
+                  "ir" // Enable the YUL output of every single file.
+              ]
+          },
+          // Enable the abi and opcodes output of MyContract defined in file def.
+          "def": {
+              "MyContract": [ "abi", "evm.bytecode.opcodes" ]
+          }
       },
       metadata: {
         // do not include the metadata hash, since this is machine dependent
