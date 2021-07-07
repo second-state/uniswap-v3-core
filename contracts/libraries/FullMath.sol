@@ -9,7 +9,7 @@ library FullMath {
     /// @param a The multiplicand
     /// @param b The multiplier
     /// @param denominator The divisor
-    /// @return result The 256-bit result
+    ///  result The 256-bit result
     /// @dev Credit to Remco Bloemen under MIT license https://xn--2-umb.com/21/muldiv
     function mulDiv(
         uint256 a,
@@ -110,7 +110,7 @@ library FullMath {
     /// @param a The multiplicand
     /// @param b The multiplier
     /// @param denominator The divisor
-    /// @return result The 256-bit result
+    ///  result The 256-bit result
     function mulDivRoundingUp(
         uint256 a,
         uint256 b,

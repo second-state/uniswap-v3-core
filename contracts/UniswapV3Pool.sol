@@ -300,9 +300,9 @@ contract UniswapV3Pool is IUniswapV3Pool, NoDelegateCall {
 
     /// @dev Effect some changes to a position
     /// @param params the position details and the change to the position's liquidity to effect
-    /// @return position a storage pointer referencing the position with the given owner and tick range
-    /// @return amount0 the amount of token0 owed to the pool, negative if the pool should pay the recipient
-    /// @return amount1 the amount of token1 owed to the pool, negative if the pool should pay the recipient
+    ///  position a storage pointer referencing the position with the given owner and tick range
+    ///  amount0 the amount of token0 owed to the pool, negative if the pool should pay the recipient
+    ///  amount1 the amount of token1 owed to the pool, negative if the pool should pay the recipient
     function _modifyPosition(ModifyPositionParams memory params)
         private
         noDelegateCall

@@ -7,7 +7,7 @@ pragma solidity >=0.5.0;
 interface IUniswapV3PoolState {
     /// @notice The 0th storage slot in the pool stores many values, and is exposed as a single method to save gas
     /// when accessed externally.
-    /// @return sqrtPriceX96 The current price of the pool as a sqrt(token1/token0) Q64.96 value
+    ///  sqrtPriceX96 The current price of the pool as a sqrt(token1/token0) Q64.96 value
     /// tick The current tick of the pool, i.e. according to the last tick transition that was run.
     /// This value may not always be equal to SqrtTickMath.getTickAtSqrtRatio(sqrtPriceX96) if the price is on a tick
     /// boundary.
@@ -49,7 +49,7 @@ interface IUniswapV3PoolState {
 
     /// @notice Look up information about a specific tick in the pool
     /// @param tick The tick to look up
-    /// @return liquidityGross the total amount of position liquidity that uses the pool either as tick lower or
+    ///  liquidityGross the total amount of position liquidity that uses the pool either as tick lower or
     /// tick upper,
     /// liquidityNet how much liquidity changes when the pool price crosses the tick,
     /// feeGrowthOutside0X128 the fee growth on the other side of the tick from the current tick in token0,
@@ -80,7 +80,7 @@ interface IUniswapV3PoolState {
 
     /// @notice Returns the information about a position by the position's key
     /// @param key The position's key is a hash of a preimage composed by the owner, tickLower and tickUpper
-    /// @return _liquidity The amount of liquidity in the position,
+    ///  _liquidity The amount of liquidity in the position,
     /// Returns feeGrowthInside0LastX128 fee growth of token0 inside the tick range as of the last mint/burn/poke,
     /// Returns feeGrowthInside1LastX128 fee growth of token1 inside the tick range as of the last mint/burn/poke,
     /// Returns tokensOwed0 the computed amount of token0 owed to the position as of the last mint/burn/poke,
@@ -100,7 +100,7 @@ interface IUniswapV3PoolState {
     /// @param index The element of the observations array to fetch
     /// @dev You most likely want to use #observe() instead of this method to get an observation as of some amount of time
     /// ago, rather than at a specific index in the array.
-    /// @return blockTimestamp The timestamp of the observation,
+    ///  blockTimestamp The timestamp of the observation,
     /// Returns tickCumulative the tick multiplied by seconds elapsed for the life of the pool as of the observation timestamp,
     /// Returns secondsPerLiquidityCumulativeX128 the seconds per in range liquidity for the life of the pool as of the observation timestamp,
     /// Returns initialized whether the observation has been initialized and the values are safe to use

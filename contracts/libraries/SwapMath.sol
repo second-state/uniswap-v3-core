@@ -14,10 +14,10 @@ library SwapMath {
     /// @param liquidity The usable liquidity
     /// @param amountRemaining How much input or output amount is remaining to be swapped in/out
     /// @param feePips The fee taken from the input amount, expressed in hundredths of a bip
-    /// @return sqrtRatioNextX96 The price after swapping the amount in/out, not to exceed the price target
-    /// @return amountIn The amount to be swapped in, of either token0 or token1, based on the direction of the swap
-    /// @return amountOut The amount to be received, of either token0 or token1, based on the direction of the swap
-    /// @return feeAmount The amount of input that will be taken as a fee
+    ///  sqrtRatioNextX96 The price after swapping the amount in/out, not to exceed the price target
+    ///  amountIn The amount to be swapped in, of either token0 or token1, based on the direction of the swap
+    ///  amountOut The amount to be received, of either token0 or token1, based on the direction of the swap
+    ///  feeAmount The amount of input that will be taken as a fee
     function computeSwapStep(
         uint160 sqrtRatioCurrentX96,
         uint160 sqrtRatioTargetX96,

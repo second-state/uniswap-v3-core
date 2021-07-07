@@ -26,7 +26,7 @@ library Oracle {
     /// @param blockTimestamp The timestamp of the new observation
     /// @param tick The active tick at the time of the new observation
     /// @param liquidity The total in-range liquidity at the time of the new observation
-    /// @return Observation The newly populated observation
+    ///  Observation The newly populated observation
     function transform(
         Observation memory last,
         uint32 blockTimestamp,
@@ -47,8 +47,8 @@ library Oracle {
     /// @notice Initialize the oracle array by writing the first slot. Called once for the lifecycle of the observations array
     /// @param self The stored oracle array
     /// @param time The time of the oracle initialization, via block.timestamp truncated to uint32
-    /// @return cardinality The number of populated elements in the oracle array
-    /// @return cardinalityNext The new length of the oracle array, independent of population
+    ///  cardinality The number of populated elements in the oracle array
+    ///  cardinalityNext The new length of the oracle array, independent of population
     function initialize(Observation[65535] storage self, uint32 time)
         internal
         returns (uint16 cardinality, uint16 cardinalityNext)
@@ -73,8 +73,8 @@ library Oracle {
     /// @param liquidity The total in-range liquidity at the time of the new observation
     /// @param cardinality The number of populated elements in the oracle array
     /// @param cardinalityNext The new length of the oracle array, independent of population
-    /// @return indexUpdated The new index of the most recently written element in the oracle array
-    /// @return cardinalityUpdated The new cardinality of the oracle array
+    ///  indexUpdated The new index of the most recently written element in the oracle array
+    ///  cardinalityUpdated The new cardinality of the oracle array
     function write(
         Observation[65535] storage self,
         uint16 index,
@@ -104,7 +104,7 @@ library Oracle {
     /// @param self The stored oracle array
     /// @param current The current next cardinality of the oracle array
     /// @param next The proposed next cardinality which will be populated in the oracle array
-    /// @return next The next cardinality which will be populated in the oracle array
+    ///  next The next cardinality which will be populated in the oracle array
     function grow(
         Observation[65535] storage self,
         uint16 current,
@@ -124,7 +124,7 @@ library Oracle {
     /// @param time A timestamp truncated to 32 bits
     /// @param a A comparison timestamp from which to determine the relative position of `time`
     /// @param b From which to determine the relative position of `time`
-    /// @return bool Whether `a` is chronologically <= `b`
+    ///  bool Whether `a` is chronologically <= `b`
     function lte(
         uint32 time,
         uint32 a,
@@ -148,8 +148,8 @@ library Oracle {
     /// @param target The timestamp at which the reserved observation should be for
     /// @param index The index of the observation that was most recently written to the observations array
     /// @param cardinality The number of populated elements in the oracle array
-    /// @return beforeOrAt The observation recorded before, or at, the target
-    /// @return atOrAfter The observation recorded at, or after, the target
+    ///  beforeOrAt The observation recorded before, or at, the target
+    ///  atOrAfter The observation recorded at, or after, the target
     function binarySearch(
         Observation[65535] storage self,
         uint32 time,
@@ -193,8 +193,8 @@ library Oracle {
     /// @param index The index of the observation that was most recently written to the observations array
     /// @param liquidity The total pool liquidity at the time of the call
     /// @param cardinality The number of populated elements in the oracle array
-    /// @return beforeOrAt The observation which occurred at, or before, the given timestamp
-    /// @return atOrAfter The observation which occurred at, or after, the given timestamp
+    ///  beforeOrAt The observation which occurred at, or before, the given timestamp
+    ///  atOrAfter The observation which occurred at, or after, the given timestamp
     function getSurroundingObservations(
         Observation[65535] storage self,
         uint32 time,
@@ -240,8 +240,8 @@ library Oracle {
     /// @param index The index of the observation that was most recently written to the observations array
     /// @param liquidity The current in-range pool liquidity
     /// @param cardinality The number of populated elements in the oracle array
-    /// @return tickCumulative The tick * time elapsed since the pool was first initialized, as of `secondsAgo`
-    /// @return secondsPerLiquidityCumulativeX128 The time elapsed / max(1, liquidity) since the pool was first initialized, as of `secondsAgo`
+    ///  tickCumulative The tick * time elapsed since the pool was first initialized, as of `secondsAgo`
+    ///  secondsPerLiquidityCumulativeX128 The time elapsed / max(1, liquidity) since the pool was first initialized, as of `secondsAgo`
     function observeSingle(
         Observation[65535] storage self,
         uint32 time,
@@ -295,8 +295,8 @@ library Oracle {
     /// @param index The index of the observation that was most recently written to the observations array
     /// @param liquidity The current in-range pool liquidity
     /// @param cardinality The number of populated elements in the oracle array
-    /// @return tickCumulatives The tick * time elapsed since the pool was first initialized, as of each `secondsAgo`
-    /// @return secondsPerLiquidityCumulativeX128s The cumulative seconds / max(1, liquidity) since the pool was first initialized, as of each `secondsAgo`
+    ///  tickCumulatives The tick * time elapsed since the pool was first initialized, as of each `secondsAgo`
+    ///  secondsPerLiquidityCumulativeX128s The cumulative seconds / max(1, liquidity) since the pool was first initialized, as of each `secondsAgo`
     function observe(
         Observation[65535] storage self,
         uint32 time,

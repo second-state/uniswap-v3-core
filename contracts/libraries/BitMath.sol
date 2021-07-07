@@ -9,7 +9,7 @@ library BitMath {
     /// @dev The function satisfies the property:
     ///     x >= 2**mostSignificantBit(x) and x < 2**(mostSignificantBit(x)+1)
     /// @param x the value for which to compute the most significant bit, must be greater than 0
-    /// @return r the index of the most significant bit
+    ///  r the index of the most significant bit
     function mostSignificantBit(uint256 x) internal pure returns (uint8 r) {
         require(x > 0);
 
@@ -49,7 +49,7 @@ library BitMath {
     /// @dev The function satisfies the property:
     ///     (x & 2**leastSignificantBit(x)) != 0 and (x & (2**(leastSignificantBit(x)) - 1)) == 0)
     /// @param x the value for which to compute the least significant bit, must be greater than 0
-    /// @return r the index of the least significant bit
+    ///  r the index of the least significant bit
     function leastSignificantBit(uint256 x) internal pure returns (uint8 r) {
         require(x > 0);
 

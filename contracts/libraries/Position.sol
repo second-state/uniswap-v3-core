@@ -26,7 +26,7 @@ library Position {
     /// @param owner The address of the position owner
     /// @param tickLower The lower tick boundary of the position
     /// @param tickUpper The upper tick boundary of the position
-    /// @return position The position info struct of the given owners' position
+    ///  position The position info struct of the given owners' position
     function get(
         mapping(bytes32 => Info) storage self,
         address owner,

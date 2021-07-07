@@ -12,8 +12,8 @@ interface IUniswapV3PoolDerivedState {
     /// @dev The time weighted average tick represents the geometric time weighted average price of the pool, in
     /// log base sqrt(1.0001) of token1 / token0. The TickMath library can be used to go from a tick value to a ratio.
     /// @param secondsAgos From how long ago each cumulative tick and liquidity value should be returned
-    /// @return tickCumulatives Cumulative tick values as of each `secondsAgos` from the current block timestamp
-    /// @return secondsPerLiquidityCumulativeX128s Cumulative seconds per liquidity-in-range value as of each `secondsAgos` from the current block
+    ///  tickCumulatives Cumulative tick values as of each `secondsAgos` from the current block timestamp
+    ///  secondsPerLiquidityCumulativeX128s Cumulative seconds per liquidity-in-range value as of each `secondsAgos` from the current block
     /// timestamp
     function observe(uint32[] calldata secondsAgos)
         external
@@ -26,9 +26,9 @@ interface IUniswapV3PoolDerivedState {
     /// snapshot is taken and the second snapshot is taken.
     /// @param tickLower The lower tick of the range
     /// @param tickUpper The upper tick of the range
-    /// @return tickCumulativeInside The snapshot of the tick accumulator for the range
-    /// @return secondsPerLiquidityInsideX128 The snapshot of seconds per liquidity for the range
-    /// @return secondsInside The snapshot of seconds per liquidity for the range
+    ///  tickCumulativeInside The snapshot of the tick accumulator for the range
+    ///  secondsPerLiquidityInsideX128 The snapshot of seconds per liquidity for the range
+    ///  secondsInside The snapshot of seconds per liquidity for the range
     function snapshotCumulativesInside(int24 tickLower, int24 tickUpper)
         external
         view
